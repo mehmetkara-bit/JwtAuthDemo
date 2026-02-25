@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Scalar.AspNetCore;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,6 +34,14 @@ var app = builder.Build();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+// OpenAPI dokümantasyonu
+app.MapOpenApi();
+
+// Scalar UI
+app.MapScalarApiReference();
+
+
 
 // Login endpoint → Token üretir
 app.MapPost("/login", (UserLogin login) =>
