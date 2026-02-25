@@ -29,6 +29,7 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddAuthorization();
+builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
