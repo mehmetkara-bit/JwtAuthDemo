@@ -1,0 +1,24 @@
+@JwtAuthDemo_HostAddress = http://localhost:5107
+
+### manuel geçici token atadım. geçersiz
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+
+### Korunan endpoint → Tokensiz deneme
+GET {{JwtAuthDemo_HostAddress}}/secure-data
+Authorization: Bearer {{token}}
+
+
+### Login isteği → Token al
+# @name login
+POST {{JwtAuthDemo_HostAddress}}/login
+Content-Type: application/json
+
+{
+  "username": "berk",
+  "password": "1234"
+}
+
+### Korunan endpoint → Token ile erişim
+GET {{JwtAuthDemo_HostAddress}}/secure-data
+Authorization: Bearer {{login.response.body.token}}

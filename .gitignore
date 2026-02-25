@@ -1,0 +1,10 @@
+# .NET Derleme Dosyaları (Çöpler)
+bin/
+obj/
+
+# Kullanıcıya özel ayarlar
+.vscode/
+.vs/
+
+# Log dosyaları
+*.log 
