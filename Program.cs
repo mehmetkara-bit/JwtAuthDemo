@@ -4,10 +4,9 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// JWT ayarları
-// Normalde appsettings.json'da tutulur
-var key = "super_secret_key_123456789012345678901234567890"; 
-var issuer = "JwtAuthDemo";
+var key = builder.Configuration["Jwt:Key"];
+var issuer = builder.Configuration["Jwt:Issuer"];
+
 
 builder.Services.AddAuthentication(options =>
 {
